@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class Opening implements Serializable {
 
     /**
-     * 
+     * @author ankur
      */
     private static final long serialVersionUID = -1408243940023119126L;
 
