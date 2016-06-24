@@ -11,7 +11,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 public class CompanyOpenings implements Serializable {
 
     /**
-     * @author ankur
+     * @author Sudhanshu
      */
     private static final long serialVersionUID = 8477905948971044103L;
 
