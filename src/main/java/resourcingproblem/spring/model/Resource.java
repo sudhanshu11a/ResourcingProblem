@@ -1,4 +1,4 @@
-package model;
+package resourcingproblem.spring.model;
 
 import java.io.Serializable;
 

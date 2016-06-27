@@ -1,40 +1,50 @@
 /**
  * 
  */
-package test;
+package resourcingproblem.spring.test;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 
-import model.CompanyOpenings;
-import model.CompanyResources;
-import model.Opening;
-import model.Resource;
+import resourcingproblem.spring.model.CompanyOpenings;
+import resourcingproblem.spring.model.CompanyResources;
+import resourcingproblem.spring.model.Opening;
+import resourcingproblem.spring.model.Resource;
 
 /**
  * @author sudhanshusharma
  *
  */
+@Component
 public class TestClass {
-
+	
+	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-
-		long startTime = System.nanoTime();
+		springCall();
 		CompanyOpenings openings = populateOpenings();
 		CompanyResources resources = populateResources();
+		checkProjects(openings);
+		}
+	
+	
+	private static void checkProjects(CompanyOpenings openings){
 		Map<String, Integer> projectOpenings = new HashMap<String, Integer>();
+		long startTime = System.nanoTime();
 		for (Opening opening : openings.getOpeningList()) {
 			String projectName = opening.getProjectName();
 			if (!projectOpenings.containsKey(projectName)) {
@@ -50,6 +60,15 @@ public class TestClass {
 		double duration = (endTime - startTime)/1_000_000;
 		System.out.println(projectOpenings.size());
 		System.out.println("time taken to process records---" + duration);
+	
+	}
+	
+	private static void springCall(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("springContext.xml");
+
+		HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
+
+		obj.printHello();
 	}
 
 	/**
