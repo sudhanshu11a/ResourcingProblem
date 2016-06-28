@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "opening")
-public class OpeningEntity {
+public class OpeningEntity extends BaseEntity {
 
 	    public String requestID;
 
