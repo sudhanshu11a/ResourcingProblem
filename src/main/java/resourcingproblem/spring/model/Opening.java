@@ -1,8 +1,13 @@
 package resourcingproblem.spring.model;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamConverter;
+
+import resourcingproblem.spring.converter.StringToListConverter;
 
 @XStreamAlias("record")
 public class Opening implements Serializable {
@@ -28,37 +33,38 @@ public class Opening implements Serializable {
     public String projectName;
 
     @XStreamAlias("IsKeyProject")
-    public String isKeyProject;
+    public boolean isKeyProject;
 
     @XStreamAlias("ProjectDomain")
     public String projectDomain;
 
     @XStreamAlias("ProjectStartDate")
-    public String projectStartDate;
+    public Date projectStartDate;
 
     @XStreamAlias("ProjectEndDate")
-    public String projectEndDate;
+    public Date projectEndDate;
 
     @XStreamAlias("Role")
     public String role;
 
     @XStreamAlias("IsKeyPosition")
-    public String isKeyPosition;
+    public boolean isKeyPosition;
 
     @XStreamAlias("YearsOfExperience")
     public Integer yearsOfExperience;
 
     @XStreamAlias("MandatorySkills")
-    public String mandatorySkills;
+    @XStreamConverter(StringToListConverter.class)
+    public List<MatchingSkillAndLevel> mandatorySkills;
 
     @XStreamAlias("ClientCommunication")
-    public String cientCommunication;
+    public boolean cientCommunication;
 
     @XStreamAlias("RequestStartDate")
-    public String requestStartDate;
+    public Date requestStartDate;
 
     @XStreamAlias("AllocationEndDate")
-    public String allocationEndDate;
+    public Date allocationEndDate;
 
     public String getRequestID() {
         return requestID;
@@ -100,11 +106,11 @@ public class Opening implements Serializable {
         this.projectName = projectName;
     }
 
-    public String getIsKeyProject() {
+    public boolean getIsKeyProject() {
         return isKeyProject;
     }
 
-    public void setIsKeyProject(String isKeyProject) {
+    public void setIsKeyProject(boolean isKeyProject) {
         this.isKeyProject = isKeyProject;
     }
 
@@ -116,19 +122,19 @@ public class Opening implements Serializable {
         this.projectDomain = projectDomain;
     }
 
-    public String getProjectStartDate() {
+    public Date getProjectStartDate() {
         return projectStartDate;
     }
 
-    public void setProjectStartDate(String projectStartDate) {
+    public void setProjectStartDate(Date projectStartDate) {
         this.projectStartDate = projectStartDate;
     }
 
-    public String getProjectEndDate() {
+    public Date getProjectEndDate() {
         return projectEndDate;
     }
 
-    public void setProjectEndDate(String projectEndDate) {
+    public void setProjectEndDate(Date projectEndDate) {
         this.projectEndDate = projectEndDate;
     }
 
@@ -140,11 +146,11 @@ public class Opening implements Serializable {
         this.role = role;
     }
 
-    public String getIsKeyPosition() {
+    public boolean getIsKeyPosition() {
         return isKeyPosition;
     }
 
-    public void setIsKeyPosition(String isKeyPosition) {
+    public void setIsKeyPosition(boolean isKeyPosition) {
         this.isKeyPosition = isKeyPosition;
     }
 
@@ -156,35 +162,43 @@ public class Opening implements Serializable {
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public String getMandatorySkills() {
-        return mandatorySkills;
-    }
+	public List<MatchingSkillAndLevel> getMandatorySkills() {
+		return mandatorySkills;
+	}
 
-    public void setMandatorySkills(String mandatorySkills) {
-        this.mandatorySkills = mandatorySkills;
-    }
+	public void setMandatorySkills(List<MatchingSkillAndLevel> mandatorySkills) {
+		this.mandatorySkills = mandatorySkills;
+	}
 
-    public String getCientCommunication() {
+	public void setKeyProject(boolean isKeyProject) {
+		this.isKeyProject = isKeyProject;
+	}
+
+	public void setKeyPosition(boolean isKeyPosition) {
+		this.isKeyPosition = isKeyPosition;
+	}
+
+	public boolean getCientCommunication() {
         return cientCommunication;
     }
 
-    public void setCientCommunication(String cientCommunication) {
+    public void setCientCommunication(boolean cientCommunication) {
         this.cientCommunication = cientCommunication;
     }
 
-    public String getRequestStartDate() {
+    public Date getRequestStartDate() {
         return requestStartDate;
     }
 
-    public void setRequestStartDate(String requestStartDate) {
+    public void setRequestStartDate(Date requestStartDate) {
         this.requestStartDate = requestStartDate;
     }
 
-    public String getAllocationEndDate() {
+    public Date getAllocationEndDate() {
         return allocationEndDate;
     }
 
-    public void setAllocationEndDate(String allocationEndDate) {
+    public void setAllocationEndDate(Date allocationEndDate) {
         this.allocationEndDate = allocationEndDate;
     }
 

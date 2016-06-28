@@ -14,6 +14,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.converters.basic.BooleanConverter;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 
@@ -35,7 +36,7 @@ public class TestClass {
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
 		// TODO Auto-generated method stub
-		springCall();
+		//springCall();
 		CompanyOpenings openings = populateOpenings();
 		CompanyResources resources = populateResources();
 		checkProjects(openings);
@@ -78,7 +79,8 @@ public class TestClass {
 	private static CompanyOpenings populateOpenings() throws FileNotFoundException {
 		FileReader reader = new FileReader("E:\\contest\\data_june14\\openings.xml"); // load
 		XStream xstream = new XStream(new StaxDriver());
-		xstream.registerConverter(new DateConverter("yyyy-MM-dd", new String[] {}));
+		xstream.registerConverter(new DateConverter("dd-MM-yyyy", new String[] {}));
+		xstream.registerConverter(new BooleanConverter("Y", "N", false));
 		xstream.processAnnotations(CompanyOpenings.class); // inform XStream to
 															// parse annotations
 															// in Data
