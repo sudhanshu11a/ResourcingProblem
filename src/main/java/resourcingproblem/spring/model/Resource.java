@@ -19,45 +19,44 @@ public class Resource implements Serializable {
     private static final long serialVersionUID = 648473801320585040L;
 
     @XStreamAlias("EmployeeID")
-    public Integer employeeID;
+    private Integer employeeID;
 
     @XStreamAlias("DOJ")
-    public Date doj;
+    private Date doj;
 
     @XStreamAlias("Skills")
     @XStreamConverter(StringToListConverter.class)
-    public List<Skill> skills;
-   // public String skills;
+    private List<Skill> skills;
 
     @XStreamAlias("DomainExperience")
-    public String domainExperience;
+    private String domainExperience;
 
     @XStreamAlias("Rating")
-    public String rating;
+    private String rating;
 
     @XStreamAlias("CommunicationsRating")
-    public String communicationsRating;
+    private String communicationsRating;
 
     @XStreamAlias("NAGP")
-    public Boolean nAGP;
+    private Boolean nAGP;
 
     @XStreamAlias("YearsOfExperience")
-    public Integer yearsOfExperience;
+    private Integer yearsOfExperience;
 
     @XStreamAlias("CurrentRole")
-    public String currentRole;
+    private String currentRole;
 
     @XStreamAlias("PreviousCustomerExperience")
-    public String previousCustomerExperience;
+    private String previousCustomerExperience;
 
     @XStreamAlias("AvailableFromDate")
-    public Date availableFromDate;
+    private Date availableFromDate;
 
     @XStreamAlias("Costperhour")
-    public Integer costperhour;
+    private Integer costperhour;
 
     @XStreamAlias("Certifications")
-    public String certifications;
+    private String certifications;
 
     public Integer getEmployeeID() {
         return employeeID;

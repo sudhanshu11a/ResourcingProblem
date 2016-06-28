@@ -26,34 +26,34 @@ import resourcingproblem.spring.dto.Skill;
 @Table(name="resource")
 public class ResourceEntity extends BaseEntity{
 
-	    public Integer employeeID;
+	private Integer employeeID;
 
 	    @Temporal(TemporalType.DATE)
-	    public Date doj;
+	    private Date doj;
 
 	    //public List<Skill> skills;
 
-	    public String domainExperience;
+	    private String domainExperience;
 
-	    public String rating;
+	    private String rating;
 
-	    public String communicationsRating;
+	    private String communicationsRating;
 
 	    @Column(columnDefinition = "tinyint", nullable = false)
-	    public Boolean nAGP;
+	    private Boolean nAGP;
 
-	    public Integer yearsOfExperience;
+	    private Integer yearsOfExperience;
 
-	    public String currentRole;
+	    private String currentRole;
 
-	    public String previousCustomerExperience;
+	    private String previousCustomerExperience;
 
 	    @Temporal(TemporalType.DATE)
-	    public Date availableFromDate;
+	    private Date availableFromDate;
 
-	    public Integer costperhour;
+	    private Integer costperhour;
 
-	    public String certifications;
+	    private String certifications;
 
 		public Integer getEmployeeID() {
 			return employeeID;

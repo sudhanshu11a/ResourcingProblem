@@ -19,53 +19,53 @@ public class Opening implements Serializable {
     private static final long serialVersionUID = -1408243940023119126L;
 
     @XStreamAlias("RequestID")
-    public String requestID;
+    private String requestID;
 
     @XStreamAlias("ClientKey")
-    public String clientKey;
+    private String clientKey;
 
     @XStreamAlias("ProjectKey")
-    public String projectKey;
+    private String projectKey;
 
     @XStreamAlias("CustomerName")
-    public String customerName;
+    private String customerName;
 
     @XStreamAlias("ProjectName")
-    public String projectName;
+    private String projectName;
 
     @XStreamAlias("IsKeyProject")
-    public Boolean isKeyProject;
+    private Boolean isKeyProject;
 
     @XStreamAlias("ProjectDomain")
-    public String projectDomain;
+    private String projectDomain;
 
     @XStreamAlias("ProjectStartDate")
-    public Date projectStartDate;
+    private Date projectStartDate;
 
     @XStreamAlias("ProjectEndDate")
-    public Date projectEndDate;
+    private Date projectEndDate;
 
     @XStreamAlias("Role")
-    public String role;
+    private String role;
 
     @XStreamAlias("IsKeyPosition")
-    public Boolean isKeyPosition;
+    private Boolean isKeyPosition;
 
     @XStreamAlias("YearsOfExperience")
-    public Integer yearsOfExperience;
+    private Integer yearsOfExperience;
 
     @XStreamAlias("MandatorySkills")
     @XStreamConverter(StringToListConverter.class)
-    public List<Skill> mandatorySkills;
+    private List<Skill> mandatorySkills;
 
     @XStreamAlias("ClientCommunication")
-    public Boolean cientCommunication;
+    private Boolean cientCommunication;
 
     @XStreamAlias("RequestStartDate")
-    public Date requestStartDate;
+    private Date requestStartDate;
 
     @XStreamAlias("AllocationEndDate")
-    public Date allocationEndDate;
+    private Date allocationEndDate;
 
     public String getRequestID() {
         return requestID;

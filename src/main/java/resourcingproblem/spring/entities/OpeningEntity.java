@@ -20,47 +20,47 @@ import javax.persistence.TemporalType;
 @Table(name = "opening")
 public class OpeningEntity extends BaseEntity {
 
-	    public String requestID;
+	    private String requestID;
 
-	    public String clientKey;
+	    private String clientKey;
 
-	    public String projectKey;
+	    private String projectKey;
 
-	    public String customerName;
+	    private String customerName;
 
-	    public String projectName;
+	    private String projectName;
 
 	    @Column(columnDefinition = "tinyint", nullable = false)
 //	    @Column(name=)
-	    public Boolean isKeyProject;
+	    private Boolean isKeyProject;
 
-	    public String projectDomain;
-
-	    @Temporal(TemporalType.DATE)
-	    public Date projectStartDate;
+	    private String projectDomain;
 
 	    @Temporal(TemporalType.DATE)
-	    public Date projectEndDate;
+	    private Date projectStartDate;
 
-	    public String role;
+	    @Temporal(TemporalType.DATE)
+	    private Date projectEndDate;
+
+	    private String role;
 
 	    @Column(columnDefinition = "tinyint", nullable = false)
-	    public Boolean isKeyPosition;
+	    private Boolean isKeyPosition;
 
-	    public Integer yearsOfExperience;
+	    private Integer yearsOfExperience;
 	    
 	 //   @OneToMany(fetch = FetchType.LAZY)
 	   /// @JoinColumn(name="mandatory_skills", referencedColumnName = "id")
 	    //public List<SkillEntity> mandatorySkills;
 
 	    @Column(columnDefinition = "tinyint", nullable = false)
-	    public Boolean cientCommunication;
+	    private Boolean cientCommunication;
 
 	    @Temporal(TemporalType.DATE)
-	    public Date requestStartDate;
+	    private Date requestStartDate;
 
 	    @Temporal(TemporalType.DATE)
-	    public Date allocationEndDate;
+	    private Date allocationEndDate;
 
 		public String getRequestID() {
 			return requestID;
