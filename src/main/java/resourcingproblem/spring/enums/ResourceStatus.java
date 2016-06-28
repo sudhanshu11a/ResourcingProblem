@@ -1,4 +1,4 @@
-package model;
+package resourcingproblem.spring.enums;
 
 /**
  * The Enum ResourceStatus will define the Status for resources.

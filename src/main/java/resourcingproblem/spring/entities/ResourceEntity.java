@@ -4,19 +4,12 @@
 package resourcingproblem.spring.entities;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamConverter;
-
-import resourcingproblem.spring.converter.StringToListConverter;
-import resourcingproblem.spring.dto.Skill;
 
 /**
  * @author sudhanshusharma
