@@ -5,8 +5,10 @@ package resourcingproblem.spring.test;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
@@ -18,10 +20,12 @@ import com.thoughtworks.xstream.converters.basic.BooleanConverter;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 
-import resourcingproblem.spring.model.CompanyOpenings;
-import resourcingproblem.spring.model.CompanyResources;
+import resourcingproblem.spring.parser.XMLParser;
+import resourcingproblem.spring.xstream.CompanyOpenings;
+import resourcingproblem.spring.xstream.CompanyResources;
 import resourcingproblem.spring.xstream.Opening;
 import resourcingproblem.spring.xstream.Resource;
+import resourcingproblem.spring.xstream.XStreamObject;
 
 /**
  * @author sudhanshusharma
@@ -77,16 +81,19 @@ public class TestClass {
 	 * @throws FileNotFoundException
 	 */
 	private static CompanyOpenings populateOpenings() throws FileNotFoundException {
-		FileReader reader = new FileReader("E:\\contest\\data_june14\\openings.xml"); // load
-		XStream xstream = new XStream(new StaxDriver());
-		xstream.registerConverter(new DateConverter("dd-MM-yyyy", new String[] {}));
-		xstream.registerConverter(new BooleanConverter("Y", "N", false));
-		xstream.processAnnotations(CompanyOpenings.class); // inform XStream to
-															// parse annotations
-															// in Data
-		xstream.processAnnotations(Opening.class); // and in two other
-													// classes...
-		CompanyOpenings data = (CompanyOpenings) xstream.fromXML(reader); // parse
+//		FileReader reader = new FileReader("E:\\contest\\data_june14\\openings.xml"); // load
+//		XStream xstream = new XStream(new StaxDriver());
+//		xstream.registerConverter(new DateConverter("dd-MM-yyyy", new String[] {}));
+//		xstream.registerConverter(new BooleanConverter("Y", "N", false));
+//		xstream.processAnnotations(CompanyOpenings.class); // inform XStream to
+//															// parse annotations
+//															// in Data
+//		xstream.processAnnotations(Opening.class); // and in two other
+//													// classes...
+//		CompanyOpenings data = (CompanyOpenings) xstream.fromXML(reader); // parse
+		XMLParser xmlParser = new XMLParser();
+		CompanyOpenings data  = (CompanyOpenings) xmlParser.populateOpenings("E:\\contest\\data_june14\\openings.xml", CompanyOpenings.class, Opening.class );
+		
 		return data;
 	}
 
@@ -95,17 +102,21 @@ public class TestClass {
 	 * @throws FileNotFoundException
 	 */
 	private static CompanyResources populateResources() throws FileNotFoundException {
-		FileReader reader = new FileReader("E:\\contest\\data_june14\\resources.xml"); // load
-		XStream xstream = new XStream(new StaxDriver());
-		xstream.registerConverter(new DateConverter("dd-MM-yyyy", new String[] {}));
-		xstream.registerConverter(new BooleanConverter("Y", "N", false));
+//		FileReader reader = new FileReader("E:\\contest\\data_june14\\resources.xml"); // load
+//		XStream xstream = new XStream(new StaxDriver());
+//		xstream.registerConverter(new DateConverter("dd-MM-yyyy", new String[] {}));
+//		xstream.registerConverter(new BooleanConverter("Y", "N", false));
+//		
+//		xstream.processAnnotations(CompanyResources.class); // inform XStream to
+//															// parse annotations
+//															// in Data
+//		xstream.processAnnotations(Resource.class); // and in two other
+//													// classes...
+//		CompanyResources data = (CompanyResources) xstream.fromXML(reader); // parse
+//		return data;
+		XMLParser xmlParser = new XMLParser();
+		CompanyResources data  = (CompanyResources) xmlParser.populateOpenings("E:\\contest\\data_june14\\resources.xml", CompanyResources.class, Resource.class );
 		
-		xstream.processAnnotations(CompanyResources.class); // inform XStream to
-															// parse annotations
-															// in Data
-		xstream.processAnnotations(Resource.class); // and in two other
-													// classes...
-		CompanyResources data = (CompanyResources) xstream.fromXML(reader); // parse
 		return data;
 	}
 }

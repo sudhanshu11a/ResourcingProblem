@@ -11,7 +11,7 @@ import resourcingproblem.spring.converter.StringToListConverter;
 import resourcingproblem.spring.dto.Skill;
 
 @XStreamAlias("record")
-public class Opening implements Serializable,XStreamObject {
+public class Opening implements Serializable, XStreamObject {
 
     /**
      * @author ankur

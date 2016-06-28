@@ -1,4 +1,4 @@
-package resourcingproblem.spring.model;
+package resourcingproblem.spring.xstream;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 import resourcingproblem.spring.xstream.Opening;
 
 @XStreamAlias("resource-data")
-public class CompanyOpenings implements Serializable {
+public class CompanyOpenings implements Serializable, XStreamObject {
 
     /**
      * @author Sudhanshu
