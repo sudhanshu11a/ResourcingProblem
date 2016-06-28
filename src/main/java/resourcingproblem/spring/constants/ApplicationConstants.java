@@ -21,4 +21,9 @@ public final class ApplicationConstants {
 	public static final String SKILL_SPLITTER = ", ";
 	
 	public static final String SKILL_LEVEL_SPLITTER = "-";
+	
+	public static final String TRUE = "Y"; 
+	
+	public static final String FALSE = "N"; 
+	
 }
