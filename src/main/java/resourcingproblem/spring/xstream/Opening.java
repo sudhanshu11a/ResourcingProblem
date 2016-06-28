@@ -1,4 +1,4 @@
-package resourcingproblem.spring.model;
+package resourcingproblem.spring.xstream;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,7 +11,7 @@ import resourcingproblem.spring.converter.StringToListConverter;
 import resourcingproblem.spring.dto.Skill;
 
 @XStreamAlias("record")
-public class Opening implements Serializable {
+public class Opening implements Serializable,XStreamObject {
 
     /**
      * @author ankur

@@ -6,8 +6,8 @@ package resourcingproblem.spring.services;
 import java.util.List;
 
 import resourcingproblem.spring.exceptions.RemoteServiceException;
-import resourcingproblem.spring.model.Opening;
-import resourcingproblem.spring.model.Resource;
+import resourcingproblem.spring.xstream.Opening;
+import resourcingproblem.spring.xstream.Resource;
 
 /**
  * @author sudhanshusharma

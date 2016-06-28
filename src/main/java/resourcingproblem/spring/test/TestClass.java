@@ -27,6 +27,8 @@ import resourcingproblem.spring.model.Opening;
 import resourcingproblem.spring.model.Resource;
 import resourcingproblem.spring.services.ResourceServcie;
 import resourcingproblem.spring.services.impl.ResourceServiceImpl;
+import resourcingproblem.spring.xstream.Opening;
+import resourcingproblem.spring.xstream.Resource;
 
 /**
  * @author sudhanshusharma

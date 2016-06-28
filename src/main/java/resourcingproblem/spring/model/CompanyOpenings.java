@@ -7,6 +7,8 @@ import java.util.List;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
+import resourcingproblem.spring.xstream.Opening;
+
 @XStreamAlias("resource-data")
 public class CompanyOpenings implements Serializable {
 
