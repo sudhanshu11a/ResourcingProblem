@@ -37,11 +37,43 @@ public class ResourceServiceImpl implements ResourceServcie{
 		List<Resource> avaliableResources = new ArrayList<Resource>();
 		
 		try{
-			//get avaliable resources from H2 DB
+			//get available resources from H2 DB
+			//can be replace with sorted Tree by available date of Resources
+			//GC this tree once we finished with this task
 			resourceEntities = resourceRepository.getAvailableResourcesOfOpening(opening.getProjectStartDate());
 			
 			//converter 
 			resources = ResourceConverter.getResourceListFromResourceEntityList(resourceEntities);
+			
+			//check mandatory skills 
+			for (Resource resource: resources){
+				if(resource.getSkills().containsAll(opening.getMandatorySkills())){
+					avaliableResources.add(resource);
+				}
+			}
+				
+		}catch(Exception e){
+			 throw new RemoteServiceException(e.getMessage());
+		}
+		
+		return avaliableResources;
+	}
+
+	@Override
+	public List<Resource> getResourcesForOpening(Opening opening, List<Resource> resources)
+			throws RemoteServiceException {
+		//List<Resource> resources = null;
+		//List<ResourceEntity> resourceEntities = null;
+		List<Resource> avaliableResources = new ArrayList<Resource>();
+		
+		try{
+			//get available resources from H2 DB
+			//can be replace with sorted Tree by available date of Resources
+			//GC this tree once we finished with this task
+			//resourceEntities = resourceRepository.getAvailableResourcesOfOpening(opening.getProjectStartDate());
+			
+			//converter 
+			//resources = ResourceConverter.getResourceListFromResourceEntityList(resourceEntities);
 			
 			//check mandatory skills 
 			for (Resource resource: resources){

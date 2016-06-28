@@ -17,4 +17,6 @@ public interface ResourceServcie {
 
 	
 	public List<Resource> getResourcesForOpening(Opening opening) throws RemoteServiceException;
+	
+	public List<Resource> getResourcesForOpening(Opening opening, List<Resource> resources) throws RemoteServiceException;
 }
