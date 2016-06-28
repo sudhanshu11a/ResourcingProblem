@@ -17,8 +17,18 @@ import resourcingproblem.spring.model.Resource;
 public class ResourceDaoImpl implements ResourceDao{
 
 	@Override
-	public List<Resource> getAvailableResourcesOfOpening(Opening opening) throws RemoteServiceException {
-		// TODO Auto-generated method stub
+	public List<Resource> getAvailableResourcesOfOpening(Opening opening) {
+
+		List<Resource> resources = null;
+		
+		try{
+			//get available resources from H2 db
+			
+		}catch(Exception e){
+			throw e;
+		}
+		
+
 		return null;
 	}
 

@@ -8,6 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 
 import resourcingproblem.spring.converter.StringToListConverter;
+import resourcingproblem.spring.dto.Skill;
 
 @XStreamAlias("record")
 public class Resource implements Serializable {
@@ -25,8 +26,8 @@ public class Resource implements Serializable {
 
     @XStreamAlias("Skills")
     @XStreamConverter(StringToListConverter.class)
-    public List<MatchingSkillAndLevel> Skills;
-    public String skills;
+    public List<Skill> skills;
+   // public String skills;
 
     @XStreamAlias("DomainExperience")
     public String domainExperience;
@@ -74,11 +75,11 @@ public class Resource implements Serializable {
         this.doj = doj;
     }
 
-    public String getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(String skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 

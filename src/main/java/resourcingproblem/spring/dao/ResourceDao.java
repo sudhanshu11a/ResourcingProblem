@@ -15,6 +15,6 @@ import resourcingproblem.spring.model.Resource;
  */
 public interface ResourceDao {
 	
-	public List<Resource> getAvailableResourcesOfOpening(Opening opening) throws RemoteServiceException;
+	public List<Resource> getAvailableResourcesOfOpening(Opening opening);
 
 }
