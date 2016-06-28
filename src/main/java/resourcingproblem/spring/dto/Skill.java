@@ -32,5 +32,23 @@ public class Skill {
 	}
 
 	
+	@Override
+    public boolean equals(Object o) {
+        if ((o instanceof Skill) && (((Skill) o).getName() == this.name) && (((Skill) o).getLevel() == this.level)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+ 
+	@Override
+	public int hashCode()
+	{
+	    final int PRIME = 31;
+	    int result = 1;
+	    result = PRIME * result + (( name == null ) ? 0 : name.hashCode());
+	    result = PRIME * result + (( level == null) ? 0 : level.hashCode());
+	    return result;
+	}
 
 }

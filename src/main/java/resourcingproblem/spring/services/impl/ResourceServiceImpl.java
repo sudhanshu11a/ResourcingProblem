@@ -8,10 +8,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import resourcingproblem.spring.dao.ResourceDao;
+import resourcingproblem.spring.converter.ResourceConverter;
+import resourcingproblem.spring.entities.ResourceEntity;
 import resourcingproblem.spring.exceptions.RemoteServiceException;
 import resourcingproblem.spring.model.Opening;
 import resourcingproblem.spring.model.Resource;
+import resourcingproblem.spring.repository.ResourceRepository;
 import resourcingproblem.spring.services.ResourceServcie;
 
 /**
@@ -21,7 +23,7 @@ import resourcingproblem.spring.services.ResourceServcie;
 @Service
 public class ResourceServiceImpl implements ResourceServcie{
 	
-	private ResourceDao resourcesDao;
+	private ResourceRepository resourceRepository;
 
 	/**
 	 * Get the available resources whose has skills mentioned in the opening
@@ -31,12 +33,15 @@ public class ResourceServiceImpl implements ResourceServcie{
 	@Override
 	public List<Resource> getResourcesForOpening(Opening opening) throws RemoteServiceException {
 		List<Resource> resources = null;
-		List<Resource> avaliableResources = null;
+		List<ResourceEntity> resourceEntities = null;
+		List<Resource> avaliableResources = new ArrayList<Resource>();
 		
 		try{
-			avaliableResources = new ArrayList<Resource>();
 			//get avaliable resources from H2 DB
-			resources = resourcesDao.getAvailableResourcesOfOpening(opening);
+			resourceEntities = resourceRepository.getAvailableResourcesOfOpening(opening.getProjectStartDate());
+			
+			//converter 
+			resources = ResourceConverter.getResourceListFromResourceEntityList(resourceEntities);
 			
 			//check mandatory skills 
 			for (Resource resource: resources){

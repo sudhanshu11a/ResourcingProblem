@@ -17,7 +17,7 @@ import resourcingproblem.spring.dto.Skill;
  */
 @Entity
 @Table(name = "opening")
-public class Opening {
+public class OpeningEntity {
 
 	    public String requestID;
 
