@@ -17,4 +17,8 @@ public final class ApplicationConstants {
 	}
 	
 	public static final String DATE_FORMATE = "dd-MM-yyyy";
+	
+	public static final String SKILL_SPLITTER = ", ";
+	
+	public static final String SKILL_LEVEL_SPLITTER = "-";
 }

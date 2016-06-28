@@ -3,7 +3,7 @@
  */
 package resourcingproblem.spring.dto;
 
-import resourcingproblem.spring.enums.SkillLevel;
+import resourcingproblem.spring.enums.SkillLevelEnum;
 
 /**
  * @author sudhanshusharma
@@ -13,7 +13,7 @@ public class Skill {
 
 	private String name;
 	
-	private SkillLevel level;
+	private SkillLevelEnum level;
 
 	public String getName() {
 		return name;
@@ -23,11 +23,11 @@ public class Skill {
 		this.name = name;
 	}
 
-	public SkillLevel getLevel() {
+	public SkillLevelEnum getLevel() {
 		return level;
 	}
 
-	public void setLevel(SkillLevel level) {
+	public void setLevel(SkillLevelEnum level) {
 		this.level = level;
 	}
 

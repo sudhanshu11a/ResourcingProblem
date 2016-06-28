@@ -19,7 +19,7 @@ public class Resource implements Serializable {
     private static final long serialVersionUID = 648473801320585040L;
 
     @XStreamAlias("EmployeeID")
-    public String employeeID;
+    public Integer employeeID;
 
     @XStreamAlias("DOJ")
     public Date doj;
@@ -39,7 +39,7 @@ public class Resource implements Serializable {
     public String communicationsRating;
 
     @XStreamAlias("NAGP")
-    public String nAGP;
+    public Boolean nAGP;
 
     @XStreamAlias("YearsOfExperience")
     public Integer yearsOfExperience;
@@ -59,11 +59,11 @@ public class Resource implements Serializable {
     @XStreamAlias("Certifications")
     public String certifications;
 
-    public String getEmployeeID() {
+    public Integer getEmployeeID() {
         return employeeID;
     }
 
-    public void setEmployeeID(String employeeID) {
+    public void setEmployeeID(Integer employeeID) {
         this.employeeID = employeeID;
     }
 
@@ -107,11 +107,11 @@ public class Resource implements Serializable {
         this.communicationsRating = communicationsRating;
     }
 
-    public String getnAGP() {
+    public Boolean getnAGP() {
         return nAGP;
     }
 
-    public void setnAGP(String nAGP) {
+    public void setnAGP(Boolean nAGP) {
         this.nAGP = nAGP;
     }
 
