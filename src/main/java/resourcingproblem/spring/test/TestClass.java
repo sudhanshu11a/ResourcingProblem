@@ -5,8 +5,10 @@ package resourcingproblem.spring.test;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
@@ -18,10 +20,13 @@ import com.thoughtworks.xstream.converters.basic.BooleanConverter;
 import com.thoughtworks.xstream.converters.basic.DateConverter;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 
+import resourcingproblem.spring.exceptions.RemoteServiceException;
 import resourcingproblem.spring.model.CompanyOpenings;
 import resourcingproblem.spring.model.CompanyResources;
 import resourcingproblem.spring.model.Opening;
 import resourcingproblem.spring.model.Resource;
+import resourcingproblem.spring.services.ResourceServcie;
+import resourcingproblem.spring.services.impl.ResourceServiceImpl;
 
 /**
  * @author sudhanshusharma
@@ -33,12 +38,21 @@ public class TestClass {
 	
 	/**
 	 * @param args
+	 * @throws RemoteServiceException 
 	 */
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws FileNotFoundException, RemoteServiceException {
 		// TODO Auto-generated method stub
 		//springCall();
 		CompanyOpenings openings = populateOpenings();
 		CompanyResources resources = populateResources();
+		ResourceServcie servcie=new ResourceServiceImpl();
+		List<Resource> actualResources = null;//=new ArrayList<>();
+		Map<String, List<Resource>> matchedResources=new HashMap<>();
+		for(Opening opening:openings.getOpeningList()){
+			actualResources =servcie.getResourcesForOpening(opening, resources.getResourceList());
+			matchedResources.put(opening.getRequestID(), actualResources);
+		}
+		System.out.println(matchedResources.entrySet());
 		checkProjects(openings);
 		}
 	
