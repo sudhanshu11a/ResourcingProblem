@@ -20,8 +20,8 @@ import com.thoughtworks.xstream.io.xml.StaxDriver;
 
 import resourcingproblem.spring.model.CompanyOpenings;
 import resourcingproblem.spring.model.CompanyResources;
-import resourcingproblem.spring.model.Opening;
-import resourcingproblem.spring.model.Resource;
+import resourcingproblem.spring.xstream.Opening;
+import resourcingproblem.spring.xstream.Resource;
 
 /**
  * @author sudhanshusharma

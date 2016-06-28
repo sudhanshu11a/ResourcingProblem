@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import resourcingproblem.spring.entities.ResourceEntity;
-import resourcingproblem.spring.model.Resource;
+import resourcingproblem.spring.xstream.Resource;
 
 /**
  * @author sudhanshusharma

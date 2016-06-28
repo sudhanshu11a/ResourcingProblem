@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 import resourcingproblem.spring.converter.ResourceConverter;
 import resourcingproblem.spring.entities.ResourceEntity;
 import resourcingproblem.spring.exceptions.RemoteServiceException;
-import resourcingproblem.spring.model.Opening;
-import resourcingproblem.spring.model.Resource;
+import resourcingproblem.spring.xstream.Opening;
+import resourcingproblem.spring.xstream.Resource;
 import resourcingproblem.spring.repository.ResourceRepository;
 import resourcingproblem.spring.services.ResourceServcie;
 
