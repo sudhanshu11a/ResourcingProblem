@@ -34,7 +34,7 @@ public class Skill {
 	
 	@Override
     public boolean equals(Object o) {
-        if ((o instanceof Skill) && (((Skill) o).getName() == this.name) && (((Skill) o).getLevel().getValue() <= this.level.getValue())) {
+        if ((o instanceof Skill) && (((Skill) o).getName().equals(this.name)) && (((Skill) o).getLevel().getValue() <= this.level.getValue())) {
             return true;
         } else {
             return false;
