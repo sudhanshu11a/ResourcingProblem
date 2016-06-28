@@ -1,8 +1,13 @@
 package resourcingproblem.spring.model;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamConverter;
+
+import resourcingproblem.spring.converter.StringToListConverter;
 
 @XStreamAlias("record")
 public class Resource implements Serializable {
@@ -16,9 +21,11 @@ public class Resource implements Serializable {
     public String employeeID;
 
     @XStreamAlias("DOJ")
-    public String doj;
+    public Date doj;
 
     @XStreamAlias("Skills")
+    @XStreamConverter(StringToListConverter.class)
+    public List<MatchingSkillAndLevel> Skills;
     public String skills;
 
     @XStreamAlias("DomainExperience")
@@ -43,7 +50,7 @@ public class Resource implements Serializable {
     public String previousCustomerExperience;
 
     @XStreamAlias("AvailableFromDate")
-    public String availableFromDate;
+    public Date availableFromDate;
 
     @XStreamAlias("Costperhour")
     public Integer costperhour;
@@ -59,11 +66,11 @@ public class Resource implements Serializable {
         this.employeeID = employeeID;
     }
 
-    public String getDoj() {
+    public Date getDoj() {
         return doj;
     }
 
-    public void setDoj(String doj) {
+    public void setDoj(Date doj) {
         this.doj = doj;
     }
 
@@ -131,11 +138,11 @@ public class Resource implements Serializable {
         this.previousCustomerExperience = previousCustomerExperience;
     }
 
-    public String getAvailableFromDate() {
+    public Date getAvailableFromDate() {
         return availableFromDate;
     }
 
-    public void setAvailableFromDate(String availableFromDate) {
+    public void setAvailableFromDate(Date availableFromDate) {
         this.availableFromDate = availableFromDate;
     }
 

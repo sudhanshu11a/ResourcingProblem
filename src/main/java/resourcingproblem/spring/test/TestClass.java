@@ -97,6 +97,9 @@ public class TestClass {
 	private static CompanyResources populateResources() throws FileNotFoundException {
 		FileReader reader = new FileReader("E:\\contest\\data_june14\\resources.xml"); // load
 		XStream xstream = new XStream(new StaxDriver());
+		xstream.registerConverter(new DateConverter("dd-MM-yyyy", new String[] {}));
+		xstream.registerConverter(new BooleanConverter("Y", "N", false));
+		
 		xstream.processAnnotations(CompanyResources.class); // inform XStream to
 															// parse annotations
 															// in Data

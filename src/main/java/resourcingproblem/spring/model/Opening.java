@@ -8,6 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 
 import resourcingproblem.spring.converter.StringToListConverter;
+import resourcingproblem.spring.dto.Skill;
 
 @XStreamAlias("record")
 public class Opening implements Serializable {
@@ -33,7 +34,7 @@ public class Opening implements Serializable {
     public String projectName;
 
     @XStreamAlias("IsKeyProject")
-    public boolean isKeyProject;
+    public Boolean isKeyProject;
 
     @XStreamAlias("ProjectDomain")
     public String projectDomain;
@@ -48,17 +49,17 @@ public class Opening implements Serializable {
     public String role;
 
     @XStreamAlias("IsKeyPosition")
-    public boolean isKeyPosition;
+    public Boolean isKeyPosition;
 
     @XStreamAlias("YearsOfExperience")
     public Integer yearsOfExperience;
 
     @XStreamAlias("MandatorySkills")
     @XStreamConverter(StringToListConverter.class)
-    public List<MatchingSkillAndLevel> mandatorySkills;
+    public List<Skill> mandatorySkills;
 
     @XStreamAlias("ClientCommunication")
-    public boolean cientCommunication;
+    public Boolean cientCommunication;
 
     @XStreamAlias("RequestStartDate")
     public Date requestStartDate;
@@ -106,11 +107,11 @@ public class Opening implements Serializable {
         this.projectName = projectName;
     }
 
-    public boolean getIsKeyProject() {
+    public Boolean getIsKeyProject() {
         return isKeyProject;
     }
 
-    public void setIsKeyProject(boolean isKeyProject) {
+    public void setIsKeyProject(Boolean isKeyProject) {
         this.isKeyProject = isKeyProject;
     }
 
@@ -146,11 +147,11 @@ public class Opening implements Serializable {
         this.role = role;
     }
 
-    public boolean getIsKeyPosition() {
+    public Boolean getIsKeyPosition() {
         return isKeyPosition;
     }
 
-    public void setIsKeyPosition(boolean isKeyPosition) {
+    public void setIsKeyPosition(Boolean isKeyPosition) {
         this.isKeyPosition = isKeyPosition;
     }
 
@@ -162,27 +163,27 @@ public class Opening implements Serializable {
         this.yearsOfExperience = yearsOfExperience;
     }
 
-	public List<MatchingSkillAndLevel> getMandatorySkills() {
+	public List<Skill> getMandatorySkills() {
 		return mandatorySkills;
 	}
 
-	public void setMandatorySkills(List<MatchingSkillAndLevel> mandatorySkills) {
+	public void setMandatorySkills(List<Skill> mandatorySkills) {
 		this.mandatorySkills = mandatorySkills;
 	}
 
-	public void setKeyProject(boolean isKeyProject) {
+	public void setKeyProject(Boolean isKeyProject) {
 		this.isKeyProject = isKeyProject;
 	}
 
-	public void setKeyPosition(boolean isKeyPosition) {
+	public void setKeyPosition(Boolean isKeyPosition) {
 		this.isKeyPosition = isKeyPosition;
 	}
 
-	public boolean getCientCommunication() {
+	public Boolean getCientCommunication() {
         return cientCommunication;
     }
 
-    public void setCientCommunication(boolean cientCommunication) {
+    public void setCientCommunication(Boolean cientCommunication) {
         this.cientCommunication = cientCommunication;
     }
 

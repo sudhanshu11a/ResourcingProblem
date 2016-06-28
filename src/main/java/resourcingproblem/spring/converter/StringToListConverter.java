@@ -6,6 +6,8 @@ import java.util.List;
 
 import com.thoughtworks.xstream.converters.SingleValueConverter;
 
+import resourcingproblem.spring.dto.Skill;
+import resourcingproblem.spring.enums.SkillLevel;
 import resourcingproblem.spring.model.MatchingSkillAndLevel;
 
 public class StringToListConverter implements SingleValueConverter{
@@ -23,6 +25,21 @@ public class StringToListConverter implements SingleValueConverter{
 
 	@Override
 	public Object fromString(String str) {
+		Collection<Skill> collection = new ArrayList<Skill>();
+        String[] skills = str.split(", ");
+        for (String skill: skills) {
+        	String[] SKillLevel =skill.split("-");
+        	Skill skillAndLevel=new Skill();
+        	skillAndLevel.setName(SKillLevel[0]);
+        	skillAndLevel.setLevel(SkillLevel.valueOf(SKillLevel[1].toUpperCase()));
+        	collection.add(skillAndLevel);
+        }
+        return collection;
+	}
+
+	
+	/*@Override
+	public Object fromString(String str) {
 		Collection<MatchingSkillAndLevel> collection = new ArrayList<MatchingSkillAndLevel>();
         String[] mandSkills = str.split(", ");
         for (String mandSkill:mandSkills) {
@@ -33,6 +50,5 @@ public class StringToListConverter implements SingleValueConverter{
         	collection.add(skillAndLevel);
         }
         return collection;
-	}
-
+	}*/
 }
