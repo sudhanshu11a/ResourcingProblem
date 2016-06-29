@@ -46,7 +46,7 @@ public class TestClass {
 			actualResources =servcie.getResourcesForOpening(opening, resources.getResourceList());
 			matchedResources.put(opening.getRequestID(), actualResources);
 		}
-		System.out.println(matchedResources.entrySet());
+		//System.out.println(matchedResources.entrySet());
 		checkProjects(openings);
 		}
 	

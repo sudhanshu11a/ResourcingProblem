@@ -3,7 +3,10 @@
  */
 package resourcingproblem.spring.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -14,8 +17,12 @@ import javax.persistence.Table;
 @Table(name = "openingResources")
 public class OpeningResourcesEntity extends BaseEntity{
 
+	@ManyToOne
+	@JoinColumn(name="opening", nullable=false)
 	private OpeningEntity openingEntity;
 	
+	@ManyToOne
+	@JoinColumn(name="resource", nullable=false)
 	private ResourceEntity resourceEntity;
 	
 	private Double score;

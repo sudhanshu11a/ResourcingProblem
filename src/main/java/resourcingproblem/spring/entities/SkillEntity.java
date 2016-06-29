@@ -4,6 +4,8 @@
 package resourcingproblem.spring.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -14,8 +16,12 @@ import javax.persistence.Table;
 @Table(name = "skill")
 public class SkillEntity extends BaseEntity {
 
+	@ManyToOne
+	@JoinColumn(name="master_skill", nullable=false)
 	private MasterSkillEntity masterSkillEntity;
 	
+	@ManyToOne
+	@JoinColumn(name = "master_skell_level", nullable = false)
 	private MasterSkillLevelEntity masterSkillLevelEntity;
 
 	public MasterSkillEntity getMasterSkillEntity() {

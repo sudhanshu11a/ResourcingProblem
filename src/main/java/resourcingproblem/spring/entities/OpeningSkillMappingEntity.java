@@ -4,6 +4,8 @@
 package resourcingproblem.spring.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -12,10 +14,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "opening_skill_mapping")
-public class OpeingSkillMappingEntity extends BaseEntity{
+public class OpeningSkillMappingEntity extends BaseEntity{
 
+	@ManyToOne
+	@JoinColumn(name = "opening", nullable = false)
 	private OpeningEntity opening;
 	
+	@ManyToOne
+	@JoinColumn(name = "skill", nullable = false)
 	private SkillEntity skill;
 
 	public OpeningEntity getOpening() {
